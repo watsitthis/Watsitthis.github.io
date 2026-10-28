@@ -1,0 +1,260 @@
+:root {
+  --bg: #020b06;
+  --bg-panel: #07160f;
+  --panel: #0c1e18;
+  --text: #8ef7af;
+  --text-soft: #d2fce0;
+  --muted: #7dbb94;
+  --line: rgba(142, 247, 175, 0.22);
+  --glow: rgba(142, 247, 175, 0.75);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "JetBrains Mono", monospace;
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(142, 247, 175, 0.1), transparent 55%);
+  pointer-events: none;
+}
+
+.scanlines {
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.02),
+    rgba(255, 255, 255, 0.02) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+  pointer-events: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(1100px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(2, 11, 6, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 72px;
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text);
+  text-shadow: 0 0 12px var(--glow);
+}
+
+.prompt {
+  color: var(--muted);
+}
+
+nav {
+  display: flex;
+  gap: 1.5rem;
+  color: var(--text-soft);
+  text-transform: lowercase;
+}
+
+nav a {
+  transition: color 0.2s ease;
+}
+
+nav a:hover,
+nav a:focus-visible {
+  color: var(--text);
+}
+
+.hero {
+  padding: 5rem 0 3rem;
+}
+
+.eyebrow,
+.tag {
+  color: var(--muted);
+  letter-spacing: 0.18em;
+  text-transform: lowercase;
+  font-size: 0.75rem;
+}
+
+h1 {
+  margin: 0.75rem 0 1rem;
+  font-size: clamp(2.8rem, 7vw, 6rem);
+  line-height: 0.96;
+  letter-spacing: -0.06em;
+  text-transform: lowercase;
+  text-shadow: 0 0 18px rgba(142, 247, 175, 0.35);
+}
+
+.subtitle {
+  max-width: 760px;
+  color: var(--text-soft);
+  font-size: 1.08rem;
+}
+
+.cta-row {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.8rem 1.2rem;
+  border: 1px solid var(--line);
+  font-weight: 700;
+  text-transform: lowercase;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.button:hover,
+.button:focus-visible {
+  transform: translateY(-1px);
+}
+
+.button.primary {
+  background: var(--text);
+  color: #031208;
+  box-shadow: 0 0 18px var(--glow);
+}
+
+.button.secondary {
+  background: transparent;
+  color: var(--text);
+}
+
+.section {
+  padding: 4rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.section-head {
+  margin-bottom: 1.5rem;
+}
+
+.section-head h2 {
+  margin: 0.5rem 0 0;
+  font-size: clamp(1.6rem, 3vw, 2.5rem);
+  letter-spacing: -0.04em;
+  text-transform: lowercase;
+}
+
+.lead {
+  max-width: 760px;
+  color: var(--text-soft);
+  font-size: 1.05rem;
+}
+
+.feature-grid,
+.projects {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.3rem;
+}
+
+.panel,
+.card {
+  background: linear-gradient(180deg, rgba(12, 30, 24, 0.9), rgba(7, 22, 15, 0.9));
+  border: 1px solid var(--line);
+  padding: 1.4rem;
+  box-shadow: inset 0 0 0 1px rgba(142, 247, 175, 0.04);
+}
+
+.panel-tag,
+.card-tag {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: var(--muted);
+  letter-spacing: 0.14em;
+  text-transform: lowercase;
+  font-size: 0.72rem;
+}
+
+.panel h3,
+.card h3 {
+  margin: 0 0 0.7rem;
+  font-size: 1.2rem;
+  color: var(--text);
+}
+
+.panel p,
+.card p {
+  margin: 0;
+  color: var(--text-soft);
+}
+
+.contact-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  border: 1px solid var(--line);
+  background: rgba(12, 30, 24, 0.75);
+  padding: 1.2rem 1.3rem;
+  color: var(--text-soft);
+}
+
+@media (max-width: 760px) {
+  .nav {
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem 0;
+  }
+
+  nav {
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .feature-grid,
+  .projects {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding-top: 4rem;
+  }
+}
